@@ -6,25 +6,18 @@ $(document).ready(function() {
 
 $btn.on('click', function() {
   console.log('click click click');
-  // $.ajax({
-  //   url: 'https://yoda.p.mashape.com/yoda',
-  //
-  //   type: 'GET',
-  //   data: {
-  //     sentence: $('#input').val()
-  //   },
-  //   datatype: 'json',
-  //   success: function(data) {alert(data);
-  //   $('#result').html(data);
-  //   },
-  //   beforeSend: function(xhr) {
-  //     xhr.setRequestHeader('X-Mashape-Key', 'bdIm0T3hHPmshYybF8dz13OmKT8qp1uIfxtjsn82CQmr2HKaMk');
-  //   }
-  //   })
-  //   .fail(function(request, textStatus, errorThrown) {
-  //     $result.html(request.status + ' ' + textStatus + ' ' + errorThrown);
-  //
-  //   });
-  });
+  $.ajax({
+    url: 'https://evening-headland-43894.herokuapp.com/profile',
+    type: 'GET',
+
+   }).done(function(data) {
+     $result.html(
+       "<p> Full Name: " + data.name + "</p> <p> Email: " + data.email + "</p> <p> Hobbies: " + data.email + "</p> <p> Description: " + data.description + "</p>"
+     );
+   })
+   .fail(function(request, textStatus, errorThrown) {
+     $result.html("Sorry! An error occured when processing your phrase. Request " + request.status + " " + textStatus + " " + errorThrown);
+   });
+ });
 
 });
