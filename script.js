@@ -12,7 +12,7 @@ $btn.on('click', function() {
 
    }).done(function(data) {
      $result.html(
-       "<p> Full Name: " + data.name + "</p> <p> Email: " + data.email + "</p> <p> Hobbies: " + data.email + "</p> <p> Description: " + data.description + "</p>"
+       "<p> Full Name: " + data.name + "</p> <p> Email: " + data.email + "</p> <p> Hobbies: " + data.hobbies + "</p> <p> Description: " + data.description + "</p>"
      );
    })
    .fail(function(request, textStatus, errorThrown) {
